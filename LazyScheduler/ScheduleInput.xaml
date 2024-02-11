@@ -1,0 +1,31 @@
+﻿<Window x:Class="LazyScheduler.ScheduleInput"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+     
+    xmlns:local="clr-namespace:LazyScheduler"
+        mc:Ignorable="d"
+        Title="ScheduleInput" Height="200" Width="560" FontFamily="Munich">
+
+    <Border BorderBrush="SeaGreen" BorderThickness="7">
+        <Grid RenderTransformOrigin="0.498,0.499" Margin="7,7,-7,-7">
+            <TextBlock Text=" Name : " HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="15" Margin="40,26,0,0"/>
+            <TextBlock Text=" Difficulty :   " HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="15" Margin="40,68,0,0"/>
+            <TextBlock Text=" Deadline : " HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="15" Margin="40,0,0,43"/>
+
+            <TextBox x:Name="Hours" TextWrapping="Wrap" Text="Name" Margin="105,26,0,0" FontStyle="Italic" Foreground="Gray" Height="18" VerticalAlignment="Top" GotFocus="Hours_GotFocus" LostFocus="Hours_LostFocus" FontSize="15" HorizontalAlignment="Left" Width="152"/>
+            <Slider HorizontalAlignment="Left" Margin="122,68,0,0" VerticalAlignment="Top" Width="270" Height="25"/>
+            <TextBox x:Name="Hours_Copy" TextWrapping="Wrap" Text="Year" Margin="242,109,0,0" FontStyle="Italic" Foreground="Gray" Height="21" VerticalAlignment="Top" GotFocus="Hours_GotFocus" LostFocus="Hours_LostFocus" FontSize="15" HorizontalAlignment="Left" Width="49"/>
+            <TextBox x:Name="Hours_Copy1" TextWrapping="Wrap" Text="Day" Margin="186,109,0,0" FontStyle="Italic" Foreground="Gray" Height="21" VerticalAlignment="Top" GotFocus="Hours_GotFocus" LostFocus="Hours_LostFocus" FontSize="15" HorizontalAlignment="Left" Width="51"/>
+            <TextBox x:Name="Hours_Copy2" TextWrapping="Wrap" Text="Month" Margin="122,109,0,0" FontStyle="Italic" Foreground="Gray" Height="21" VerticalAlignment="Top" GotFocus="Hours_GotFocus" LostFocus="Hours_LostFocus" FontSize="15" HorizontalAlignment="Left" Width="59"/>
+
+
+        </Grid>
+
+
+    </Border>
+
+
+
+</Window>
