@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Collections.ObjectModel;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -16,9 +17,17 @@ namespace LazyScheduler
     /// </summary>
     public partial class MainWindow : Window
     {
+        public int TotalHours = 0;
+        public int TotalDifficulty = 0;
+        ObservableCollection<Assignment> assignmentList = new ObservableCollection<Assignment>();
+        public ObservableCollection<Assignment> AssignmentList;
+        
         public MainWindow()
         {
             InitializeComponent();
         }
+
+        
+
     }
 }
