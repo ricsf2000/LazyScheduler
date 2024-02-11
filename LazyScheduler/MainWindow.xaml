@@ -5,8 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LazyScheduler"
         mc:Ignorable="d"
-        Title="MainWindow" Height="400" Width="700" FontFamily="Munich" MinWidth="700"
-        MinHeight="300">
+        Title="MainWindow" Height="390" Width="770" FontFamily="Munich" ResizeMode="NoResize">
     <Window.Resources>
         <Style x:Key="CalendarStyle1" TargetType="{x:Type Calendar}">
             <Setter Property="Foreground" Value="#FF333333"/>
@@ -44,16 +43,26 @@
     </Window.Resources>
 
     <Grid>
-        <Viewbox Margin="0,5,0,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="700">
-            <Calendar Style="{DynamicResource CalendarStyle1}" Width="189" Height="174" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="200,0,0,0"/>
+        <Viewbox Width="793" Margin="-43,-1,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="395">
+            <Calendar Style="{DynamicResource CalendarStyle1}" Width="189" Height="174" Margin="200,0,0,0" Loaded="Calendar_Loaded">
+                <Calendar.Template>
+                    <ControlTemplate TargetType="Calendar">
+                        <Grid>
+                            <CalendarItem x:Name="PART_CalendarItem" Grid.Row="1" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Style="{TemplateBinding CalendarItemStyle}">
+                                <!-- Additional template parts -->
+                            </CalendarItem>
+                        </Grid>
+                    </ControlTemplate>
+                </Calendar.Template>
+            </Calendar>
         </Viewbox>
-        <Line X1="20" X2="300" Y2="185" Y1="185" Stroke="SeaGreen" Margin="0,-59,0,59" StrokeThickness="0.5"/>
+        <Line X1="20" X2="300" Y2="185" Y1="185" Stroke="SeaGreen" Margin="0,-59,0,59" StrokeThickness="0.5" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Label Content="Lazy Scheduler" FontFamily="Munich" FontSize="13" FontStyle="Italic" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Label Content="Time Available:" Margin="19,70,0,0" FontSize="15" FontFamily="Munich" HorizontalAlignment="Left" VerticalAlignment="Top" />
         <Label Content="To-Do:" Margin="20,98,0,0" FontSize="15" FontFamily="Munich" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <TextBox x:Name="Hours" TextWrapping="Wrap" Text="Hours" Margin="136,74,0,0" FontStyle="Italic" Foreground="Gray" Height="20" VerticalAlignment="Top" GotFocus="Hours_GotFocus" LostFocus="Hours_LostFocus" FontSize="13" HorizontalAlignment="Left" Width="48"/>
         <TextBox x:Name="Minutes" TextWrapping="Wrap" Text="Minutes" Margin="189,74,0,0" Width="60" FontStyle="Italic" Foreground="Gray" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" GotFocus="Minutes_GotFocus" LostFocus="Minutes_LostFocus" FontSize="13"/>
-        <ListView x:Name="tasksListView" d:ItemsSource="{d:SampleData ItemCount=1}" FontFamily="Munich" FontSize="13" Margin="19,131,350,103" VerticalContentAlignment="Center" BorderThickness="0">
+        <ListView x:Name="tasksListView" d:ItemsSource="{d:SampleData ItemCount=1}" FontFamily="Munich" FontSize="13" Margin="19,131,0,103" VerticalContentAlignment="Center" BorderThickness="0" HorizontalAlignment="Left" Width="281">
             <ListView.Resources>
                 <Style TargetType="GridViewColumnHeader">
                     <Setter Property="Visibility" Value="Collapsed" />
@@ -66,7 +75,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Content="Schedule" BorderBrush="Black" Background="#FF71BA91" RenderTransformOrigin="0.5,0.566" HorizontalAlignment="Left" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="24,0,0,328" Width="136" Grid.ColumnSpan="1" FontFamily="Munich" Click="Button_Click_1" Height="25" VerticalAlignment="Bottom" FontSize="11" FontWeight="Bold">
+        <Button Content="Schedule" BorderBrush="Black" Background="#FF71BA91" RenderTransformOrigin="0.5,0.566" HorizontalAlignment="Left" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="24,30,-1,0" Width="136" Grid.ColumnSpan="1" FontFamily="Munich" Click="Button_Click_1" Height="25" VerticalAlignment="Top" FontSize="11" FontWeight="Bold">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="1"/>
@@ -76,7 +85,7 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Line X1="15" X2="350" Y2="125" Y1="125" Stroke="SeaGreen" Margin="0,-59,0,59"/>
+        <Line X1="15" X2="350" Y2="125" Y1="125" Stroke="SeaGreen" Margin="0,-59,0,59" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
