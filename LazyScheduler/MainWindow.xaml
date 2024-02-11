@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:LazyScheduler"
         mc:Ignorable="d"
         Title="MainWindow" Height="400" Width="700" FontFamily="Munich" MinWidth="700"
+         
         MinHeight="300" MouseLeftButtonDown="Window_MouseLeftButtonDown">
     <Window.Resources>
         <Style x:Key="CalendarStyle1" TargetType="{x:Type Calendar}">
@@ -45,6 +46,7 @@
                 
             </Setter>
                     
+
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="Template">
                 <Setter.Value>
@@ -58,7 +60,71 @@
         </Style>
     </Window.Resources>
     <Grid>
-        <Viewbox HorizontalAlignment="Right" Margin="0,5,0,9" VerticalAlignment="Top">
+
+
+        <Grid Margin="0,120,330,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="397*"/>
+                <ColumnDefinition Width="217*"/>
+            </Grid.ColumnDefinitions>
+            <TextBox x:Name="TimeNeeded" TextWrapping="Wrap" Text="% Time" FontStyle="Italic" Foreground="Gray" Height="20" VerticalAlignment="Bottom" GotFocus="TimeNeeded_GotFocus" LostFocus="TimeNeeded_LostFocus" FontSize="13" Grid.Column="1" HorizontalAlignment="Left" Width="54" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,1,122"/>
+            <TextBox x:Name="Description" TextWrapping="Wrap" Text="Description" Margin="20,0,10,122" FontStyle="Italic" Foreground="Gray" Height="20" VerticalAlignment="Bottom" GotFocus="Description_GotFocus" LostFocus="Description_LostFocus" FontSize="13"/>
+            <Button Content="Submit" FontFamily="Munich" FontWeight="Bold" BorderBrush="Black" Background="#FFD6DBE6" Click="Button_Click" Height="30" FontSize="14" HorizontalAlignment="Right" Width="86" Grid.Column="1" VerticalAlignment="Bottom" Margin="0,0,20,50" Foreground="Black">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Name="border" CornerRadius="8" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="border" Property="Background" Value="#FFC8D0E2"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </Grid>
+        <Label Content="Lazy Scheduler" FontFamily="Munich" FontSize="13" FontStyle="Italic" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="Time Available:" Margin="20,32,0,0" FontSize="15" FontFamily="Munich" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Label Content="To-Do:" Margin="20,57,0,0" FontSize="15" FontFamily="Munich" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBox x:Name="Hours" TextWrapping="Wrap" Text="Hours" Margin="146,36,0,0" FontStyle="Italic" Foreground="Gray" Height="20" VerticalAlignment="Top" GotFocus="Hours_GotFocus" LostFocus="Hours_LostFocus" FontSize="13" HorizontalAlignment="Left" Width="49"/>
+        <TextBox x:Name="Minutes" TextWrapping="Wrap" Text="Minutes" Margin="200,36,0,0" Width="60" FontStyle="Italic" Foreground="Gray" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" GotFocus="Minutes_GotFocus" LostFocus="Minutes_LostFocus" FontSize="13"/>
+        <ListView x:Name="tasksListView" d:ItemsSource="{d:SampleData ItemCount=1}" FontFamily="Munich" FontSize="13" Margin="19,85,350,149" VerticalContentAlignment="Center">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="    Description    " DisplayMemberBinding="{Binding Description}" />
+                    <GridViewColumn Header="    % of Time Needed    " DisplayMemberBinding="{Binding PercentTime, StringFormat={}{0}%}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Content="Add" BorderBrush="Black" Background="#FFD6DBE6" RenderTransformOrigin="0.5,0.566" HorizontalAlignment="Left" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="20,0,0,100" Width="52" Grid.ColumnSpan="1" FontFamily="Munich" Click="Button_Click_1" Height="17" VerticalAlignment="Bottom" FontSize="11">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button Content="Remove" BorderBrush="Black" Background="#FFD6DBE6" RenderTransformOrigin="0.5,0.566" HorizontalAlignment="Left" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="20,0,0,78" Width="52" Grid.ColumnSpan="1" FontFamily="Munich" Click="Button_Click_2" Height="17" VerticalAlignment="Bottom" FontSize="11">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Viewbox HorizontalAlignment="Right" Margin="0,40,0,9" VerticalAlignment="Top">
+
             <Calendar Style="{DynamicResource CalendarStyle1}" Width="189" Height="174" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="200,0,0,0"/>
         </Viewbox>
     </Grid>
