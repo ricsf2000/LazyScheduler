@@ -113,14 +113,8 @@ namespace LazyScheduler
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            ScheduleInput scheduleWindow = new ScheduleInput();
-            scheduleWindow.Show();
+            
             Close();
-        }
-
-        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-
         }
     }
 }

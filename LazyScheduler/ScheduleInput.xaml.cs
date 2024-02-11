@@ -60,14 +60,6 @@ namespace LazyScheduler
             LostFocus_General(Hours, "Hours");
         }
 
-        private void Minutes_GotFocus(object sender, RoutedEventArgs e)
-        {
-            GotFocus_General(Hours, "Minutes");
-        }
 
-        private void Minutes_LostFocus(object sender, RoutedEventArgs e)
-        {
-            LostFocus_General(Hours, "Minutes");
-        }
     }
 }
