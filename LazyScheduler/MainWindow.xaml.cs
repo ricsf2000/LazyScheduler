@@ -113,8 +113,8 @@ namespace LazyScheduler
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            //ScheduleInput progressWindow = new ScheduleInput();
-
+            ScheduleInput scheduleWindow = new ScheduleInput();
+            scheduleWindow.Show();
             Close();
         }
 

@@ -23,5 +23,51 @@ namespace LazyScheduler
         {
             InitializeComponent();
         }
+        private void GotFocus_General(TextBox Time, string timeType)
+        {
+            if (Time != null)
+            {
+                if (Time.Text == timeType)
+                {
+                    Time.Text = string.Empty;
+                    Time.Foreground = System.Windows.Media.Brushes.Black;
+                    Time.FontFamily = new System.Windows.Media.FontFamily("Bookman Old Style");
+                    Time.FontStyle = FontStyles.Normal;
+                }
+            }
+        }
+        private void LostFocus_General(TextBox Time, string timeType)
+        {
+            if (Time != null)
+            {
+                if (Time.Text == "")
+                {
+                    Time.Text = timeType;
+                    Time.Foreground = System.Windows.Media.Brushes.Gray; ;
+                    Time.FontFamily = new System.Windows.Media.FontFamily("Segoe UI");
+                    Time.FontStyle = FontStyles.Italic;
+                }
+            }
+        }
+
+        private void Hours_GotFocus(object sender, RoutedEventArgs e)
+        {
+            GotFocus_General(Hours, "Hours");
+        }
+
+        private void Hours_LostFocus(object sender, RoutedEventArgs e)
+        {
+            LostFocus_General(Hours, "Hours");
+        }
+
+        private void Minutes_GotFocus(object sender, RoutedEventArgs e)
+        {
+            GotFocus_General(Hours, "Minutes");
+        }
+
+        private void Minutes_LostFocus(object sender, RoutedEventArgs e)
+        {
+            LostFocus_General(Hours, "Minutes");
+        }
     }
 }
